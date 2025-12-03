@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scientific Calculator</title>
+    </head>
+
+    <body>
+        <h1>Scientific Calculator</h1>
+        <div>
+            <input type="text" id="result" readonly>
+        </div>
+        <div>
+            <button onclick="document.getElementById('result').value += '7'">7</button>
+            <button onclick="document.getElementById('result').value += '8'">8</button>
+            <button onclick="document.getElementById('result').value += '9'">9</button>
+            <button onclick="document.getElementById('result').value += '/'">/</button>
+            <button onclick="document.getElementById('result').value += 'Math.sqrt('">√</button>
+        </div>
+        <div>
+            <button onclick="document.getElementById('result').value += '4'">4</button>
+            <button onclick="document.getElementById('result').value += '5'">5</button>
+            <button onclick="document.getElementById('result').value += '6'">6</button>
+            <button onclick="document.getElementById('result').value += '*'">*</button>
+            <button onclick="document.getElementById('result').value += 'Math.pow('">x²</button>
+        </div>
+        <div>
+            <button onclick="document.getElementById('result').value += '1'">1</button>
+            <button onclick="document.getElementById('result').value += '2'">2</button>
+            <button onclick="document.getElementById('result').value += '3'">3</button>
+            <button onclick="document.getElementById('result').value += '-'">-</button>
+            <button onclick="document.getElementById('result').value += 'Math.sin('">sin</button>
+        </div>
+        <div>
+            <button onclick="document.getElementById('result').value += '0'">0</button>
+            <button onclick="document.getElementById('result').value = ''">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="document.getElementById('result').value += '+'">+</button>
+            <button onclick="document.getElementById('result').value += 'Math.cos('">cos</button>
+        </div>
+        <script>
+            function calculate() {
+                let resultField = document.getElementById('result');
+                try {
+                    resultField.value = eval(resultField.value);
+                } catch (e) {
+                    alert('Invalid Expression');
+                }
+            }
+        </script>
+    </body>
+
+</html>

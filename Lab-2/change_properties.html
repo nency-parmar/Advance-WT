@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Change Properties</title>
+    </head>
+
+    <body>
+        <div id="Box" style="width: 200px;height: 200px;">
+
+        </div>
+        <button id="button" onclick="propChange()">Change Properties</button>
+        <script>
+            function propChange() {
+                const box = document.getElementById("Box");
+                box.style.backgroundColor = 'violet';
+                box.style.borderRadius = '250px';
+                box.style.width = '250px';
+                box.style.height = '250px';
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prime or Not</title>
+    </head>
+
+    <body>
+        <script>
+            let a = parseInt(prompt("Enter 1st Number : "));
+            let b = parseInt(prompt("Enter 2nd Number : "));
+            let flag = false;
+            for (let i = a; i <= b; i++) {
+                let flag = false;
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag == false) {
+                    document.write(j, " , ");
+                }
+            }
+        </script>
+    </body>
+
+</html>

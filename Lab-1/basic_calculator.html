@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+    </head>
+
+    <body>
+        <script>
+            let a = parseInt(prompt("Enter 1st Number : "));
+            let b = parseInt(prompt("Enter 2nd Number : "));
+            let c = prompt("Enter Operators From (+,-,*,/)");
+            switch (c) {
+                case '+':
+                    document.write("Sum is : ", a + b);
+                    break;
+                case '-':
+                    document.write("Subtraction is : ", a - b);
+                    break;
+                case '*':
+                    document.write("Multiplication is : ", a * b);
+                    break;
+                case '/':
+                    document.write("Division is : ", a / b);
+                    break;
+                default:
+                    document.write("Invalid Operator!!!");
+            }
+        </script>
+    </body>
+
+</html>

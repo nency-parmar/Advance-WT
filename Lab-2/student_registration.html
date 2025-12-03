@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Student Registration</title>
+    </head>
+
+    <body>
+        <form>
+            <div id="page">
+                <h1>Student Registration</h1>
+
+                <div id="Name">
+                    Name :
+                    <input type="text" placeholder="Enter Your Name" required>
+                </div><br>
+
+                <div id="name">
+                    Email :
+                    <input type="text" id="email" placeholder="Enter Your Email">
+                    <div id="successmail" style="color: green;"></div>
+                    <div id="errormail" style="color: #a8324c;"></div>
+                </div><br>
+
+                <div id="name">
+                    Enrollment Number :
+                    <input type="number" id="eNo" placeholder="Enter Your Enrollment Number">
+                    <div id="successeno" style="color: green;"></div>
+                    <div id="erroreno" style="color: #a8324c;"></div>
+                </div><br>
+
+                <div id="name">
+                    Course :
+                    <select>
+                        <option disabled selected>Select Course</option>
+                        <option value="CSE">CSE</option>
+                        <option value="IT">IT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ME">ME</option>
+                    </select>
+                </div><br>
+
+                <button type="button" onclick="valid()">SUBMIT</button>
+            </div>
+        </form>
+
+        <script>
+            function valid() {
+                let mail = document.getElementById("email").value;
+                let mailRegex = /\s*[a-zA-Z0-9]+\@[a-zA-Z]+\.[a-zA-Z]{1,}/;
+
+                if (mailRegex.test(mail)) {
+                    document.getElementById("errormail").innerHTML = "";
+                }
+                else {
+                    document.getElementById("errormail").innerHTML = "Please Enter Valid E-Mail I'D";
+                    alert("Invalid Email! Please enter a valid Email ID.");
+                    return;
+                }
+
+                let enrollment = document.getElementById("eNo").value;
+                let enrollmentRegex = /^\d{11}$/;
+
+                if (enrollmentRegex.test(enrollment)) {
+                    document.getElementById("erroreno").innerHTML = "";
+                }
+                else {
+                    document.getElementById("erroreno").innerHTML = "Please Enter Valid Enrollment Number";
+                    alert("Invalid Enrollment Number! It must be exactly 11 digits.");
+                    return;
+                }
+                alert("Form Submitted Successfully!");
+            }
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form</title>
+    </head>
+
+    <body>
+        <div>
+            <form>
+                <div className="name">
+                    <label>Name:</label>
+                    <input type="text" id="name">
+                </div><br />
+                <div className="pass">
+                    <label>Password:</label>
+                    <input type="text" id="pass">
+                </div><br />
+                <div className="confirm-pass">
+                    <label>Confirm Password:</label>
+                    <input type="text" id="confirm-pass">
+                </div><br />
+                <div className="age">
+                    <label>Date Of Birth:</label>
+                    <input type="date" id="age">
+                </div><br />
+                <div className="enrollment">
+                    <label>Enrollment No:</label>
+                    <input type="number" id="enrollment">
+                </div><br />
+                <div className="mail">
+                    <label>Email:</label>
+                    <input type="text" id="mail">
+                </div><br />
+                <button type="submit" onclick="return validate()">Submit</button>
+            </form>
+        </div>
+        <script>
+            function validate() {
+                let name = document.getElementById("name").value;
+                let pass = document.getElementById("pass").value;
+                let confirmPass = document.getElementById("confirm-pass").value;
+                let age = document.getElementById("age").value;
+                let enrollment = document.getElementById("enrollment").value;
+                let mail = document.getElementById("mail").value;
+
+                if (name.length < 8) {
+                    alert("Name must be at least 8 characters...");
+                    return false;
+                }
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
+                if (!passwordRegex.test(pass)) {
+                    alert("Please Enter a Strong Password...");
+                    return false;
+                }
+                if (pass !== confirmPass) {
+                    alert("Please Enter Same Password...");
+                    return false;
+                }
+
+                newAge = new Date().getFullYear() - new Date(age).getFullYear();
+                if (newAge < 18) {
+                    alert("Age Must be Grater than 18...");
+                    return false;
+                }
+                if (enrollment.length !== 11) {
+                    alert("Enrollment Number must be 11 digits...");
+                    return false;
+                }
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(mail)) {
+                    alert("Please Enter Valid Email...");
+                    return false;
+                }
+            }
+        </script>
+    </body>
+
+</html>

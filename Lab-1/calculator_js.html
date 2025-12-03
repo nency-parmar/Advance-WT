@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <input type="text" id="result">
+            </div>
+            <div>
+                <button onclick="document.getElementById('result').value += '1'">1</button>
+                <button onclick="document.getElementById('result').value += '2'">2</button>
+                <button onclick="document.getElementById('result').value += '3'">3</button>
+                <button onclick="document.getElementById('result').value += '+'">+</button>
+            </div>
+            <div>
+                <button onclick="document.getElementById('result').value += '4'">4</button>
+                <button onclick="document.getElementById('result').value += '5'">5</button>
+                <button onclick="document.getElementById('result').value += '6'">6</button>
+                <button onclick="document.getElementById('result').value += '-'">-</button>
+            </div>
+            <div>
+                <button onclick="document.getElementById('result').value += '7'">7</button>
+                <button onclick="document.getElementById('result').value += '8'">8</button>
+                <button onclick="document.getElementById('result').value += '9'">9</button>
+                <button onclick="document.getElementById('result').value += '*'">*</button>
+            </div>
+            <div>
+                <button onclick="document.getElementById('result').value += '0'">0</button>
+                <button onclick="document.getElementById('result').value = ''">C</button>
+                <button onclick="">=</button>
+                <button onclick="document.getElementById('result').value += '/'">/</button>
+            </div>
+            <script>
+                function calculate() {
+                    let resultField = document.getElementById('result');
+                    try {
+                        resultField.value = eval(resultField.value);
+                    } catch (e) {
+                        alert('Invalid Expression');
+                    }
+                }
+            </script>
+    </body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CRUD</title>
+    </head>
+
+    <body>
+        <div>
+            <input type="text" id="name" placeholder="Enter Your Text Here">
+            <button onclick="addData()">ADD</button><br><br>
+
+            <div id="output"></div><br>
+
+            <button onclick="updateData()">UPDATE</button>
+            <button onclick="deleteData()">DELETE</button>
+        </div>
+
+        <script>
+
+            let list = [];
+            let selectedIndex = -1;
+            function addData() {
+                let value = document.getElementById("name").value;
+
+                if (value.trim() === "") {
+                    alert("Please enter something!");
+                    return;
+                }
+
+                list.push(value);
+                document.getElementById("name").value = "";
+                display();
+            }
+            function display() {
+                let output = "";
+
+                list.forEach((item, index) => {
+                    output += `<p onclick="selectItem(${index})">
+                                ${index + 1}. ${item}
+                            </p>`;
+                });
+
+                document.getElementById("output").innerHTML = output;
+            }
+            function selectItem(index) {
+                selectedIndex = index;
+                document.getElementById("name").value = list[index];
+            }
+            function updateData() {
+                if (selectedIndex === -1) {
+                    alert("Select an item first!");
+                    return;
+                }
+
+                let updatedText = document.getElementById("name").value;
+
+                if (updatedText.trim() === "") {
+                    alert("Updated text cannot be empty!");
+                    return;
+                }
+
+                list[selectedIndex] = updatedText;
+                selectedIndex = -1;
+                document.getElementById("name").value = "";
+                display();
+            }
+            function deleteData() {
+                if (selectedIndex === -1) {
+                    alert("Select an item to delete!");
+                    return;
+                }
+
+                list.splice(selectedIndex, 1);
+                selectedIndex = -1;
+                document.getElementById("name").value = "";
+                display();
+            }
+
+        </script>
+
+    </body>
+
+</html>
