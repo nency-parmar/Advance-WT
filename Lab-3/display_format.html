@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Checkbox List</title>
+    </head>
+
+    <body>
+
+        <input type="checkbox" value="101" onclick="s()">101<br>
+        <input type="checkbox" value="102" onclick="s()">102<br>
+        <input type="checkbox" value="103" onclick="s()">103<br>
+
+        <p id="out"></p>
+
+        <script>
+            function s() {
+                let v = [...document.querySelectorAll("input[type=checkbox]:checked")].map(x => x.value);
+                out.innerHTML = v.join(",");
+            }
+        </script>
+
+    </body>
+
+</html>

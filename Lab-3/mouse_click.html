@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Mouse Events</title>
+    </head>
+
+    <body onmousedown="f(event)">
+        <h2 id="msg"></h2>
+
+        <script>
+            function f(e) {
+                if (e.button == 0) msg.innerHTML = "Left Clicked";
+                if (e.button == 2) msg.innerHTML = "Right Clicked";
+            }
+            document.oncontextmenu = () => false;
+        </script>
+
+    </body>
+
+</html>
