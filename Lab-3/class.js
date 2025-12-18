@@ -1,4 +1,4 @@
-class Student {
+classNamename Student {
     constructor(n, r) {
         this.name = n;
         this.roll = r;
