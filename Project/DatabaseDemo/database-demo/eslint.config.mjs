@@ -1,18 +1,18 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+use demo
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
+create table users (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    UserName VARCHAR(100) NOT NULL,
+    Password VARCHAR(255) NOT NULL
+);
 
-export default eslintConfig;
+create table task (
+    TaskID INT AUTO_INCREMENT PRIMARY KEY,
+    TaskTitle VARCHAR(200) NOT NULL,
+    TaskDescription TEXT,
+    IsCompleted BOOLEAN DEFAULT FALSE,
+    UserID INT,
+    FOREIGN KEY (UserID) REFERENCES users(UserID)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);

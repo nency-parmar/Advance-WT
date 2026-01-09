@@ -1,5 +1,6 @@
 import React from "react";
 import mysql from "mysql2/promise";
+
 export default async function Home() {
   const connection = await mysql.createConnection({
     host: "localhost",
@@ -7,6 +8,7 @@ export default async function Home() {
     password: "Nency@0707",
     database: "demo",
   });
+
   try {
     const [results] = await connection.query("SELECT * FROM users");
     const data = results as any[];
@@ -38,3 +40,4 @@ export default async function Home() {
     console.log(err);
   }
 }
+
